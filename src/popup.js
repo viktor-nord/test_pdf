@@ -27,6 +27,10 @@ function Popup({ char, val, open }) {
     console.log('dqwdqdqwdqwd')
     document.getElementsByTagName('body')[0].scrollTop = 0
     document.getElementsByTagName('body')[0].scrollLeft = 0
+    document.getElementById('ggggg').scrollTop = 0
+    document.getElementById('ggggg').scrollLeft = 0
+    document.getElementById('popup').scrollTop = 0
+    document.getElementById('popup').scrollLeft = 0
   }, [])
 
   // function openbox(title, val) {
