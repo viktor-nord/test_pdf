@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Popup({ char, val, open }) {
   console.log("dddddd");
@@ -22,6 +22,12 @@ function Popup({ char, val, open }) {
   // const [spellTitle, setSpellTitle] = useState("");
   // const [spell, setSpell] = useState(null);
   // const [familiar, setfamiliar] = useState(null);
+
+  useEffect(() => {
+    console.log('dqwdqdqwdqwd')
+    window.document.body.style.scrollTop = 0
+    window.document.body.style.scrollLeft = 0
+  }, [])
 
   // function openbox(title, val) {
   //   if (title === "familiar") {
@@ -69,8 +75,6 @@ function Popup({ char, val, open }) {
 
   function zz() {
     let z = document.getElementsByTagName('body')[0]
-    window.document.body.style.scrollTop = 0
-    window.document.body.style.scrollLeft = 0
 
     console.log(window.document.body)
     // console.log(z.style.zoom)
