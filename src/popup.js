@@ -31,6 +31,10 @@ function Popup({ char, val, open }) {
     document.getElementById('ggggg').scrollLeft = 0
     document.getElementById('popup').scrollTop = 0
     document.getElementById('popup').scrollLeft = 0
+    let vp = document.querySelector('meta[name="viewport"]')
+    if (vp) {
+      vp.content = "initial-scale=1"
+    }
   }, [])
 
   // function openbox(title, val) {
