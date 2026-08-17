@@ -8,7 +8,7 @@ import Ability from "./ability";
 function App() {
   // let char = dedd
   const [char, setchar] = useState(hugo);
-  const [type, setType] = useState("spells");
+  // const [type, setType] = useState("spells");
   const [hp, setHp] = useState(char.hp);
   const [tempHp, setTempHp] = useState(0);
   const [isOpen, setIsOpen] = useState(false);

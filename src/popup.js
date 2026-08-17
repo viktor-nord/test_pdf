@@ -1,37 +1,37 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 function Popup({ char, val, open }) {
   console.log("dddddd");
   console.log(val);
-  const [spellOpen, setSpellOpen] = useState(false);
-  const [boxContent, setBoxContent] = useState({ title: "Init", text: "None" });
-  const all_spells = char.spells.cantrips.concat(
-    char.spells.lv1,
-    char.spells.lv2,
-    char.spells.lv3,
-    char.spells.lv4,
-    char.spells.lv5,
-    char.spells.lv6,
-    char.spells.lv7,
-    char.spells.lv8,
-    char.spells.lv9,
-    char.spells.lv10,
-  );
-  const [spellList, setSpellList] = useState([]);
-  const [spellTitle, setSpellTitle] = useState("");
-  const [spell, setSpell] = useState(null);
-  const [familiar, setfamiliar] = useState(null);
+  // const [spellOpen, setSpellOpen] = useState(false);
+  // const [boxContent, setBoxContent] = useState({ title: "Init", text: "None" });
+  // const all_spells = char.spells.cantrips.concat(
+  //   char.spells.lv1,
+  //   char.spells.lv2,
+  //   char.spells.lv3,
+  //   char.spells.lv4,
+  //   char.spells.lv5,
+  //   char.spells.lv6,
+  //   char.spells.lv7,
+  //   char.spells.lv8,
+  //   char.spells.lv9,
+  //   char.spells.lv10,
+  // );
+  // const [spellList, setSpellList] = useState([]);
+  // const [spellTitle, setSpellTitle] = useState("");
+  // const [spell, setSpell] = useState(null);
+  // const [familiar, setfamiliar] = useState(null);
 
-  function openbox(title, val) {
-    if (title === "familiar") {
-      setBoxContent({ title: val.name, text: "" });
-      setfamiliar(val);
-    } else {
-      setBoxContent({ title: title, text: val });
-      setfamiliar(null);
-    }
-    setSpellOpen(false);
-  }
+  // function openbox(title, val) {
+  //   if (title === "familiar") {
+  //     setBoxContent({ title: val.name, text: "" });
+  //     setfamiliar(val);
+  //   } else {
+  //     setBoxContent({ title: title, text: val });
+  //     setfamiliar(null);
+  //   }
+  //   setSpellOpen(false);
+  // }
 
   // function openSpellbox(val) {
   //   setSpellList(null);
@@ -48,23 +48,23 @@ function Popup({ char, val, open }) {
   //   setSpellOpen(!spellOpen);
   // }
 
-  function backToSpells() {
-    setSpell(null);
-  }
+  // function backToSpells() {
+  //   setSpell(null);
+  // }
 
-  function selectSpell(val) {
-    let s = all_spells.find(({ name }) => name === val);
-    let obj = {
-      name: s.name,
-      casting_time: s.casting_time,
-      range: s.range,
-      components: s.components,
-      duration: s.duration,
-      val: s.val,
-      levels: s.levels ? s.levels : null,
-    };
-    setSpell(obj);
-  }
+  // function selectSpell(val) {
+  //   let s = all_spells.find(({ name }) => name === val);
+  //   let obj = {
+  //     name: s.name,
+  //     casting_time: s.casting_time,
+  //     range: s.range,
+  //     components: s.components,
+  //     duration: s.duration,
+  //     val: s.val,
+  //     levels: s.levels ? s.levels : null,
+  //   };
+  //   setSpell(obj);
+  // }
 
   return (
     <div className="container">
