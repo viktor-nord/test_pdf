@@ -25,8 +25,8 @@ function Popup({ char, val, open }) {
 
   useEffect(() => {
     console.log('dqwdqdqwdqwd')
-    window.document.body.style.scrollTop = 0
-    window.document.body.style.scrollLeft = 0
+    document.getElementsByTagName('body')[0].scrollTop = 0
+    document.getElementsByTagName('body')[0].scrollLeft = 0
   }, [])
 
   // function openbox(title, val) {
