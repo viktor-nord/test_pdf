@@ -1,8 +1,9 @@
-// import { useState } from "react";
+import { useState } from "react";
 
 function Popup({ char, val, open }) {
   console.log("dddddd");
   console.log(val);
+  const [zoom, setzoom] = useState('');
   // const [spellOpen, setSpellOpen] = useState(false);
   // const [boxContent, setBoxContent] = useState({ title: "Init", text: "None" });
   // const all_spells = char.spells.cantrips.concat(
@@ -66,12 +67,23 @@ function Popup({ char, val, open }) {
   //   setSpell(obj);
   // }
 
+  function zz() {
+    let z = document.getElementsByTagName('body')[0]
+    window.document.body.style.scrollTop = 0
+    window.document.body.style.scrollLeft = 0
+
+    console.log(window.document.body)
+    // console.log(z.style.zoom)
+    setzoom(z.style.zoom)
+  }
+
   return (
-    <div className="container">
+    <div className="container" id="ggggg">
       <div id="popup" className="popup">
         <button onClick={open}>x</button>
+        <button onClick={zz}>Z</button>
         <div>
-          <p>hello</p>
+          <p>zoom is: {zoom}</p>
         </div>
       </div>
       {/* {isOpen === "gg" && (
