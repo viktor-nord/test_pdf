@@ -33,7 +33,9 @@ function Popup({ char, val, open }) {
     document.getElementById('popup').scrollLeft = 0
     let vp = document.querySelector('meta[name="viewport"]')
     if (vp) {
+      console.log(vp)
       vp.content = "initial-scale=1"
+      vp.content = "width=850"
     }
   }, [])
 
