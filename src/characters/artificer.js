@@ -21,6 +21,7 @@ const artificer = {
     money: 15,
     equipment: ['tinker tools', 'recomendation letter from baytopia', 'common clothes'],
     hit_dice: 8,
+    armor: 1,
     hp: 32,
     str: 10,
     dex: 13,
