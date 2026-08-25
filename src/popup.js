@@ -35,7 +35,7 @@ function Popup({ char, val, open }) {
     if (vp) {
       console.log(vp)
       vp.content = "initial-scale=1"
-      vp.content = "width=850"
+      vp.content = "width=device-width"
     }
   }, [])
 
