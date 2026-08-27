@@ -1,0 +1,90 @@
+const familiars = [
+    {
+        name: "Otherworldly Steed",
+        size: "Large",
+        type: "Celestial, Fey, or Fiend (Your Choice)",
+        ac: "10 + 1 per spell level",
+        hp: "5 + 10 per spell level (the steed has a number of Hit Dice [d10s] equal to the spell’s level)",
+        speed: "60 ft., Fly 60 ft. (requires level 4+ spell)",
+        str: 18,
+        dex: 12,
+        con: 14,
+        int: 6,
+        wis: 12,
+        cha: 8,
+        immunities: "",
+        senses: ["Passive Perception 11"],
+        languages: "Telepathy 1 mile (works only with you)",
+        CR: 0,
+        traits: [
+            {name: "Life bond", val: "When you regain Hit Points from a level 1+ spell, the steed regains the same number of Hit Points if you’re within 5 feet of it."}
+        ],
+        actions: [
+            {name: "Otherworldly Slam", val: "Melee Attack Roll: Bonus equals your spell attack modifier, reach 5 ft. Hit: 1d8 plus the spell’s level of Radiant (Celestial), Psychic (Fey), or Necrotic (Fiend) damage."}
+        ],
+        bonus_action: [
+            {name: "Fell Glare (Fiend Only)", val: "Recharges after a Long Rest. Wisdom Saving Throw: DC equals your spell save DC, one creature within 60 feet the steed can see. Failure: The target has the Frightened condition until the end of your next turn."},
+            {name: "Fey Step (Fey Only)", val: "Recharges after a Long Rest. The steed teleports, along with its rider, to an unoccupied space of your choice up to 60 feet away from itself."},
+            {name: "Healing Touch (Celestial Only)", val: "Recharges after a Long Rest. One creature within 5 feet of the steed regains a number of Hit Points equal to 2d8 plus the spell’s level."},
+        ],
+        reactions: []
+    },
+    {
+        name: "Homunculus Servant",
+        size: "Tiny",
+        type: "Construct",
+        ac: "13",
+        hp: "5 + 5 per spell level (the homunculus has a number of Hit Dice [d4s] equal to the spell’s level)",
+        speed: "20 ft., Fly 30 ft.",
+        str: 4,
+        dex: 15,
+        con: 12,
+        int: 10,
+        wis: 10,
+        cha: 7,
+        immunities: "Poison; Exhaustion, Poisoned",
+        senses: ["Darkvision 60 ft.; Passive Perception 10"],
+        languages: "Telepathy 1 mile (works only with you)",
+        CR: 0,
+        traits: [
+            {name: "Evasion", val: "If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the homunculus instead takes no damage if it succeeds on the save and only half damage if it fails. It can’t use this trait if it has the Incapacitated condition."},
+            {name: "Magic Bond", val: "Add the spell level to any ability check or saving throw the homunculus makes."},
+        ],
+        actions: [
+            {name: "Force Strike", val: "Melee or Ranged Attack Roll: Bonus equals your spell attack modifier, reach 5 ft. or range 30 ft. Hit: 1d6 plus the spell’s level of Force damage."}
+        ],
+        bonus_action: [],
+        reactions: [
+            {name: "Channel Magic", val: "Trigger: You cast a spell that has a range of touch while the homunculus is within 120 feet of you. Response: The homunculus delivers the spell through its touch."}
+        ]
+    },
+    {
+        name: "Bestial Spirit",
+        size: "Small",
+        type: "Beast",
+        ac: "11 + the spell's level",
+        hp: "20 (Air only) or 30 (Land and Water only) + 5 for each spell level above 2",
+        speed: "30 ft.; Climb 30 ft. (Land only); Fly 60 ft. (Air only); Swim 30 ft. (Water only)",
+        str: 18,
+        dex: 11,
+        con: 16,
+        int: 4,
+        wis: 14,
+        cha: 5,
+        immunities: "",
+        senses: ["Darkvision 60 ft., Passive Perception 12"],
+        languages: "Understands the languages that you know",
+        CR: 0,
+        traits: [
+            {name: "Flyby (Air Only)", val: "The spirit doesn’t provoke Opportunity Attacks when it flies out of an enemy’s reach."},
+            {name: "Pack Tactics (Land and Water Only)", val: "The spirit has Advantage on an attack roll against a creature if at least one of the spirit’s allies is within 5 feet of the creature and the ally doesn’t have the Incapacitated condition."},
+            {name: "Water Breathing (Water Only)", val: "The spirit can breathe only underwater."},
+        ],
+        actions: [
+            {name: "Multiattack", val: "The spirit makes a number of Rend attacks equal to half this spell’s level (round down)."},
+            {name: "Rend", val: "Melee Attack Roll: Bonus equals your spell attack modifier, reach 5 ft. Hit: 1d8 + 4 + the spell’s level Piercing damage."},
+        ],
+        bonus_action: [],
+        reactions: []
+    },
+]
