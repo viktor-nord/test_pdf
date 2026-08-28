@@ -252,6 +252,7 @@
   width: 8px;
   height: 8px;
   left: 141px;
+  z-index: 2;
 }
 
 .saving {
