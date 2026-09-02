@@ -139,7 +139,7 @@ function Inputs({ char, click }) {
                 </div>
             </div>
             {/* Attacks */}
-            <div id="attack_name_1" className="input start">
+            {/* <div id="attack_name_1" className="input start">
                 Crossbow
             </div>
             <div id="attack_attack_1" className="input start">
@@ -165,7 +165,7 @@ function Inputs({ char, click }) {
             </div>
             <div id="attack_damage_3" className="input start">
                 1d6/thunder
-            </div>
+            </div> */}
             <div id="attack_list" className="list">
                 {char.spells.cantrips.length
                     ? char.spells.cantrips.map(function (x, i) {
@@ -251,21 +251,21 @@ function Inputs({ char, click }) {
             <div
                 id="ideals"
                 className="input click"
-            // onClick={() => openSpellbox("cantrips")}
+            onClick={() => click("all")}
             >
-                Cantrips
+                All Spells
             </div>
             <div
                 id="bonds"
                 className="input click"
-            // onClick={() => openSpellbox("spells")}
+            onClick={() => click("my")}
             >
                 My Spells
             </div>
             <div
                 id="flaws"
                 className="input click"
-            // onClick={() => click("familiar", char.familiar)}
+            onClick={() => click("familiar", char.familiar)}
             >
                 My Familiar
             </div>
@@ -276,7 +276,7 @@ function Inputs({ char, click }) {
                             <div
                                 id={`feat_${x.name}`}
                                 className="click"
-                            // onClick={() => click(x.name, x.val)}
+                                onClick={() => click(x.name, x.val)}
                             >
                                 {x.name}
                             </div>

@@ -1,110 +1,97 @@
 import { useState, useEffect } from "react";
 
 function Popup({ char, val, open }) {
-  console.log("dddddd");
-  console.log(val);
-  const [zoom, setzoom] = useState('');
-  // const [spellOpen, setSpellOpen] = useState(false);
-  // const [boxContent, setBoxContent] = useState({ title: "Init", text: "None" });
-  // const all_spells = char.spells.cantrips.concat(
-  //   char.spells.lv1,
-  //   char.spells.lv2,
-  //   char.spells.lv3,
-  //   char.spells.lv4,
-  //   char.spells.lv5,
-  //   char.spells.lv6,
-  //   char.spells.lv7,
-  //   char.spells.lv8,
-  //   char.spells.lv9,
-  //   char.spells.lv10,
-  // );
-  // const [spellList, setSpellList] = useState([]);
-  // const [spellTitle, setSpellTitle] = useState("");
-  // const [spell, setSpell] = useState(null);
-  // const [familiar, setfamiliar] = useState(null);
+  const [spellOpen, setSpellOpen] = useState(false);
+  const [boxContent, setBoxContent] = useState({
+    title: "error",
+    text: "something went wrong",
+  });
+  const all_spells = char.spells.cantrips.concat(
+    char.spells.lv1,
+    char.spells.lv2,
+    char.spells.lv3,
+    char.spells.lv4,
+    char.spells.lv5,
+    char.spells.lv6,
+    char.spells.lv7,
+    char.spells.lv8,
+    char.spells.lv9,
+    char.spells.lv10,
+  );
+  const [spellList, setSpellList] = useState([]);
+  const [spellTitle, setSpellTitle] = useState("");
+  const [spell, setSpell] = useState(null);
+  const [familiar, setfamiliar] = useState(null);
 
   useEffect(() => {
-    console.log('dqwdqdqwdqwd')
-    document.getElementsByTagName('body')[0].scrollTop = 0
-    document.getElementsByTagName('body')[0].scrollLeft = 0
-    document.getElementById('ggggg').scrollTop = 0
-    document.getElementById('ggggg').scrollLeft = 0
-    document.getElementById('popup').scrollTop = 0
-    document.getElementById('popup').scrollLeft = 0
-    let vp = document.querySelector('meta[name="viewport"]')
-    if (vp) {
-      console.log(vp)
-      vp.content = "initial-scale=1"
-      vp.content = "width=device-width"
+    if (val === null) return;
+    if (val.title === "all" || val.title === "my") {
+      openSpellbox(val);
+    } else if (val.title === "familiar") {
+      setfamiliar(val.text);
+      setBoxContent({ title: val.text.name, text: val.text });
+    } else {
+      let obj = { title: val.title, text: val.text };
+      setBoxContent(obj);
     }
-  }, [])
+    // eslint-disable-next-line
+  }, [val]);
 
-  // function openbox(title, val) {
-  //   if (title === "familiar") {
-  //     setBoxContent({ title: val.name, text: "" });
-  //     setfamiliar(val);
-  //   } else {
-  //     setBoxContent({ title: title, text: val });
-  //     setfamiliar(null);
-  //   }
-  //   setSpellOpen(false);
-  // }
+  useEffect(() => {
+    let vp = document.querySelector('meta[name="viewport"]');
+    if (vp) {
+      vp.content = "initial-scale=1";
+      vp.content = "width=device-width";
+    }
+  }, []);
 
-  // function openSpellbox(val) {
-  //   setSpellList(null);
-  //   if (val === "cantrips") {
-  //     setSpellTitle("Cantrips");
-  //     setSpellList(char.spells.cantrips);
-  //   } else if (val === "my") {
-  //     setSpellTitle("My Spells");
-  //     setSpellList([char.spells.lv1[0]]);
-  //   } else {
-  //     setSpellTitle("All Spells");
-  //     setSpellList(all_spells);
-  //   }
-  //   setSpellOpen(!spellOpen);
-  // }
+  function openSpellbox(val) {
+    setSpellList(null);
+    if (val.title === "my") {
+      setSpellTitle("My Spells");
+      setSpellList(all_spells);
+    } else {
+      setSpellTitle("All Spells");
+      setSpellList(all_spells);
+    }
+    setSpellOpen(!spellOpen);
+  }
 
-  // function backToSpells() {
-  //   setSpell(null);
-  // }
+  function backToSpells() {
+    setSpell(null);
+  }
 
-  // function selectSpell(val) {
-  //   let s = all_spells.find(({ name }) => name === val);
-  //   let obj = {
-  //     name: s.name,
-  //     casting_time: s.casting_time,
-  //     range: s.range,
-  //     components: s.components,
-  //     duration: s.duration,
-  //     val: s.val,
-  //     levels: s.levels ? s.levels : null,
-  //   };
-  //   setSpell(obj);
-  // }
+  function selectSpell(val) {
+    let s = all_spells.find(({ name }) => name === val);
+    let obj = {
+      name: s.name,
+      casting_time: s.casting_time,
+      range: s.range,
+      components: s.components,
+      duration: s.duration,
+      val: s.val,
+      levels: s.levels ? s.levels : null,
+    };
+    setSpell(obj);
+  }
 
-  function zz() {
-    let z = document.getElementsByTagName('body')[0]
-
-    console.log(window.document.body)
-    // console.log(z.style.zoom)
-    setzoom(z.style.zoom)
+  function close() {
+    setSpellOpen(false);
+    setBoxContent({ title: "error", text: "something went wrong" });
+    setSpellList(all_spells);
+    setSpellTitle("");
+    setSpell(null);
+    setfamiliar(null);
+    open();
   }
 
   return (
-    <div className="container" id="ggggg">
-      <div id="popup" className="popup">
-        <button onClick={open}>x</button>
-        <button onClick={zz}>Z</button>
-        <div>
-          <p>zoom is: {zoom}</p>
-        </div>
-      </div>
-      {/* {isOpen === "gg" && (
+    <div className="container">
+      {spellOpen === false ? (
         <div className="box">
           <div className="title">
             <div>{boxContent.title}</div>
-            <div onClick={() => openbox("", "")} className="close-btn click">
+            <div onClick={close} className="close-btn click">
               <span></span>
               <span></span>
             </div>
@@ -161,8 +148,7 @@ function Popup({ char, val, open }) {
             )}
           </div>
         </div>
-      )}
-      {spellOpen === "gg" && (
+      ) : (
         <div>
           {spell ? (
             <div className="box">
@@ -189,10 +175,7 @@ function Popup({ char, val, open }) {
             <div className="box">
               <div className="title">
                 <div>{spellTitle}</div>
-                <div
-                  onClick={() => openSpellbox("", "")}
-                  className="close-btn click"
-                >
+                <div onClick={close} className="close-btn click">
                   <span></span>
                   <span></span>
                 </div>
@@ -215,7 +198,7 @@ function Popup({ char, val, open }) {
             </div>
           )}
         </div>
-      )} */}
+      )}
     </div>
   );
 }

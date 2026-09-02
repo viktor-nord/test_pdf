@@ -1,23 +1,9 @@
-
 :root {
   --red: #ec5b38;
   --bg: #fcf2e5;
   --bg-dark: #f7e8d4;
   --gray: #a8a492;
   --black: #524646;
-}
-
-.popup {
-  position: absolute;
-  width: 90vw;
-  height: 90vh;
-  left: 5px;
-  top: 5px;
-  background-color: red;
-  opacity: 0.5;
-  border: 1px solid blue;
-  z-index: 9999;
-
 }
 
 .container {
@@ -38,14 +24,54 @@
   font-weight: bold;
 }
 
-.click {cursor: pointer;}
+.click {
+  cursor: pointer;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  color: var(--black);
+  font-size: large;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.monster-list {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 10%;
+  background-color: var(--bg);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  color: var(--black);
+  font-size: large;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);  
+  overflow-y: scroll;
+}
 
 .box {
   position: fixed;
   top: 40px;
   left: 29px;
   width: 800px;
-  /* height: 90vh; for scrolling */ 
+  /* height: 90vh; for scrolling */
   max-height: 90%;
   margin: auto;
   display: flex;
@@ -56,7 +82,7 @@
   border: 1px solid var(--gray);
   border-radius: 5px;
   color: var(--black);
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .box > .title {
@@ -78,7 +104,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .box > .title > div:last-child {
@@ -90,7 +116,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn > span {
@@ -126,7 +152,9 @@
   justify-content: center;
   align-items: flex-start;
   border-radius: 5px;
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
+  white-space: pre-wrap;
 }
 
 .box > .body > div {
@@ -221,7 +249,7 @@
 .spell-list {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: 95%;
 }
 
@@ -269,14 +297,14 @@
 
 .stat_mod {
   position: absolute;
-  left: 50px; 
-  width: 59px; 
+  left: 50px;
+  width: 59px;
   height: 39px;
 }
 
 .stat_val {
   position: absolute;
-  width: 29px; 
+  width: 29px;
   height: 18px;
   left: 65px;
 }
